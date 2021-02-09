@@ -11,3 +11,9 @@ PLAYLIST
 REVIEW
 [ ] belongs to playlist
 [ ] belongs to user
+
+Generate 
+[ ] 3 Models and it's migrations
+
+[ ] Test out objects and associations in "rails c -s"
+
