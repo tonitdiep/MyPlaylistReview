@@ -4,3 +4,4 @@ class User < ApplicationRecord
     has_many :reviewed_playlists, through: :reviews, source: :playlist #that they reviewed
  end
  
+ 

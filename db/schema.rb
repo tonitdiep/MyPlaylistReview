@@ -13,7 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_02_09_080058) do
 
   create_table "playlists", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
+    t.text "description"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -21,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_080058) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
     t.text "comment"
     t.integer "user_id", null: false
     t.integer "playlist_id", null: false
@@ -31,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_080058) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "password_digest"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
