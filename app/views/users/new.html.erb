@@ -1,5 +1,5 @@
 <h1>Sign Up Now!</h1>
-<%= form_with url: '/signup' do |f| %> 
+<%= form_with model: @user do |f| %> 
 
     <%= f.label :username %>
     <%= f.text_field :username %><br><br>
@@ -15,3 +15,8 @@
 
 <% end %>
 
+<% if !!flash[:message] %>
+  <% flash[:message].each do |errors|  %>
+    <%= errors %> 
+  <% end %>
+<% end %>
