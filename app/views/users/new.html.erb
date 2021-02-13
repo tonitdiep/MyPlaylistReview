@@ -15,8 +15,4 @@
 
 <% end %>
 
-<% if !!flash[:message] %>
-  <% flash[:message].each do |errors|  %>
-    <%= errors %> 
-  <% end %>
-<% end %>
+<%= flash[:message]%>

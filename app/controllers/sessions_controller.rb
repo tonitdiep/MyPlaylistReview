@@ -1,21 +1,26 @@
 class SessionsController < ApplicationController
     def welcome
+        if logged_in? 
+            redirect_to user_path(current_user)
+        end    
     end
     def new
+        # byebug
+        @user = User.new
+
     end
 
-    def login 
-    end
 
-    def create
-        
+
+    def create #sign up
+
         @user = User.find_by_username(params[:username])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = user.id
             redirect_to user_path(@user)
         else
-            # flash[:massage] = "Login Failed. Try again."
-            redirect_to '/'
+            flash[:message] = "Login Failed. Try again."
+            redirect_to 'new'
         end
     end
 

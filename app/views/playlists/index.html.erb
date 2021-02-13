@@ -1,0 +1,11 @@
+List all Playlists
+
+<% @playlists.each do |playlist|%>
+    <ul>
+    <li>
+        <%= playlist.title%><br>
+        <%= playlist.description%>
+    </li>
+    </ul>
+<% end %>
+    

@@ -11,7 +11,15 @@
   </head>
 
   <body>
-
+        
+      <div>
+      <p style="text-align:center;">
+      <% if flash[:message] %>
+        <%= flash[:message] %>
+      <% end %>
+      </p>
+      <%= @error %>
+      </div>
     <%= yield %>
   </body>
 </html>

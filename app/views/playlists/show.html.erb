@@ -1,0 +1,14 @@
+
+<%= link_to "Access all Reviews", playlist_reviews_path(@playlist)%> |
+<%= link_to "Put in a new Reviews", new_playlist_review_path(@playlist)%><br>
+
+<h1>Playlist Title: <%= @playlist.title %></h1>
+<h2>Current User: <%= current_user.username %><br><br>
+
+<div>Playlist Description: <%= @playlist.description %></div>
+
+<h4>REVIEWED PLAYLISTS:<h/4>
+<% @playlist.reviews.each do |p| %>
+    <li><strong><%= p.user.username %></strong> thoughts: 
+        "<%= link_to p.description, review_path(p)%>" </li>
+<% end %>
