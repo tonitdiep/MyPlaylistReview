@@ -1,14 +1,8 @@
 class SessionsController < ApplicationController
     def welcome
         
-        if logged_in? 
-            
-            # session[:user_id]
-            redirect_to user_path(current_user)
-        else
-            redirect_to 'login/new'
-        end    
     end
+
     def new
         # byebug
         @user = User.new
@@ -18,20 +12,19 @@ class SessionsController < ApplicationController
 
 
     def create #sign up
-
         @user = User.find_by_username(params[:username])
         if @user && @user.authenticate(params[:password])
-            session[:user_id] = user.id
+            session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
             flash[:message] = "Login Failed. Try again."
-            redirect_to 'new'
+            redirect_to '/login'
         end
     end
 
     def destroy
-        session.clear
-        redirect_to '/login'
+        session.delete(:user_id)
+        redirect_to root_path
     end
 # def omniauth
 #     def self.create_from_omniauth(auth)

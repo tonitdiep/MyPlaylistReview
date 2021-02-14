@@ -9,6 +9,6 @@
 
 <h4>REVIEWED PLAYLISTS:<h/4>
 <% @playlist.reviews.each do |p| %>
-    <li><strong><%= p.user.username %></strong> thoughts: 
-        "<%= link_to p.description, review_path(p)%>" </li>
+ 
+        "<%= link_to p.description, playlist_review_path(p)%>" </li>\
 <% end %>
