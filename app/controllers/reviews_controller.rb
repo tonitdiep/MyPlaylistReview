@@ -12,17 +12,6 @@ class ReviewsController < ApplicationController
             @reviews = Review.all
         end
 
-        # if params[:playlist_id]
-        #     @playlist = Playlist.find_by_id(params[:playlist_id])
-        #     if @playlist
-        #          @review = @playlist.reviews 
-        #     else
-        #         @error = "Nonexistence"
-        #         @reviews = Review.all 
-        #     end
-        # else
-        #     @reviews = Review.all
-        # end
     end
 
 

@@ -1,7 +1,12 @@
 class SessionsController < ApplicationController
     def welcome
+        
         if logged_in? 
+            
+            # session[:user_id]
             redirect_to user_path(current_user)
+        else
+            redirect_to 'login/new'
         end    
     end
     def new
@@ -24,10 +29,10 @@ class SessionsController < ApplicationController
         end
     end
 
-    # def destroy
-    #     session.clear
-    #     redirect_to root_path or session#home?
-    # end
+    def destroy
+        session.clear
+        redirect_to '/login'
+    end
 # def omniauth
 #     def self.create_from_omniauth(auth)
 #         User.find_or_create_by(ui: auth['uid'], provider: auth['provider']) do |u|

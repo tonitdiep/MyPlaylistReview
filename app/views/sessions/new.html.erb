@@ -1,14 +1,14 @@
 <h1>Please Log In</h1>
 
-<%= form_tag login_path do %>
+<%= form_with(url: '/login') do |f| %>
 
-    <label>Username:</label>
-    <%= text_field_tag :'login[username]' %><br><br>
+    <%= f.label :username %>
+    <%= f.text_field :username %><br><br>
 
-    <label>Password:</label>
-    <%= password_field_tag :'login[password]'%><br><br>
-    
-    <%= submit_tag "Log In" %>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br><br>    
+
+    <%= f.submit "Log In" %>
     
 <% end %>
 
