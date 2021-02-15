@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 # get '/users/:id', to: 'users#show'
 root to: 'sessions#welcome'
+get 'auth/:provider/callback', to: 'sessions#omniauth'
+
 #sessions
 get '/login', to: 'sessions#new'
 post '/login', to: 'sessions#create'
@@ -22,7 +24,7 @@ resources :playlists do
   resources :reviews
 end
 
-# get 'auth/:provider/callback', to: 'sessions#omniauth'
+
 # namespace :user do 
 #   resources :playlists, :reviews
 # end

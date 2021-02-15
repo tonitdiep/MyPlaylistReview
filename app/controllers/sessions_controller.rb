@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
     end
 
     def new
-        # byebug
         @user = User.new
 
     end
@@ -26,22 +25,22 @@ class SessionsController < ApplicationController
         session.delete(:user_id)
         redirect_to root_path
     end
-# def omniauth
-#     def self.create_from_omniauth(auth)
-#         User.find_or_create_by(ui: auth['uid'], provider: auth['provider']) do |u|
-#             u.username =
-#             u.email = 
-#             u.password = 
-#         end
-#         if @user.save
-#             session[:user_id] = user.id
-#             redirect_to new
-#     end
-# end
+    def omniauth
+        user = User.create_from_omniauth(auth)
+            if user.save
+                session[:user_id] = user.id
+                redirect_to new_playlist_path  
 
-# private
-# def auth
-#     request.env('omniauth.auth')
-# end
+            else
+    
+                flash[:message] = user.errors.full_messages.join(", ")
+                redirect_to playlists_path 
+            end
+    end
+
+private
+    def auth
+        request.env['omniauth.auth']
+    end
 
 end
