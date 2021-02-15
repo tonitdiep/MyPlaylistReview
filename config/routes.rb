@@ -15,22 +15,16 @@ post '/signup', to: 'users#create'
 
 resources :reviews 
 
-resources :reviews do
-    resources :users
-  end
+# resources :users, only: [:show, :new, :create]
+
+resources :users, only: [:show, :new, :create] do
+    resources :reviews
+end
 
 
 resources :playlists do
   resources :reviews
 end
-
-
-# namespace :user do 
-#   resources :playlists, :reviews
-# end
-
-
-
 
 
 end

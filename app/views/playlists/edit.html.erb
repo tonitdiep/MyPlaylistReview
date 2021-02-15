@@ -1,12 +1,12 @@
-<h1>Make Your Playlist Here</h1>
+<h1>Editing Your Playlist Here</h1>
 
-Hello, <%= current_user.username %>!<br><br>
+<%= flash[:message]%>
 <%= form_for([@playlist]) do |f|%>
     <%= f.label :title %>
     <%= f.text_field :title %>
 
     <%= f.label :description %>
     <%= f.text_field :description %>
-    <%= f.submit "Add Playlist!"%>
+    <%= f.submit "Edit Playlist!"%>
 <% end %>
 

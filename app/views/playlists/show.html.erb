@@ -2,12 +2,13 @@
 <br><br>
 <%= link_to "See all Reviews", playlist_reviews_path(@playlist)%> |
 <%= link_to "Put in a new Reviews", new_playlist_review_path(@playlist)%><br>
-
+<%= link_to "To All Reviews", playlist_reviews_path(@playlist)%>
 <h1>Playlist Title: <%= @playlist.title %></h1>
 <h2>Current User: <%= current_user.username %><br><br>
 
 <div>Playlist Description: <%= @playlist.description %></div>
-
+<%= link_to "Edit your Playlist", edit_playlist_path %><br><br>
+<%= link_to 'Back', playlists_path %>
 <p>Reviewed Playlist Comment(s) <%=@review%> </p>
 <h4>REVIEWED PLAYLISTS:</h4>
 <% @playlist.reviews.each do |review| %>

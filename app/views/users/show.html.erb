@@ -1,9 +1,10 @@
-<h1>Welcome User: <%= @user.username%></h1> 
-<h3><%= @user.email%> </h3><br>
+<h1>Welcome User: <%= current_user.username%></h1> 
+<h3><%= current_user.email%> </h3><br>
 
 My Playlists:
 
-<% @user.playlists.each do |p|%>
-    <%= link_to "hello", user_playlist_path(p) %>
+<% current_user.playlists.each do |p|%>
+    <%= link_to "hello", playlist_path(p) %>
 <% end %>
 
+<%= link_to "Your Reviewed Playlists", reviews_path%>
