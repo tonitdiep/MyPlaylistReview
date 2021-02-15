@@ -10,7 +10,7 @@
 
 <p>Reviewed Playlist Comment(s) <%=@review%> </p>
 <h4>REVIEWED PLAYLISTS:</h4>
-<% @reviews.each do |review| %>
-        <%= review.user, user_path(review.user)%> said <%= comment.description%>
+<% @playlist.reviews.each do |review| %>
+      <%=link_to "reviewed playlists", playlist_review_path(review)%>
     
 <% end %>

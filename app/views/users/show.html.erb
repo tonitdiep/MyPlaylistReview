@@ -1,6 +1,9 @@
-<h1>Welcome User: <%= @user.username%> to Playlist Collection World</h1> 
+<h1>Welcome User: <%= @user.username%></h1> 
 <h3><%= @user.email%> </h3><br>
 
 My Playlists:
 
-Playlists <%= @playlists.user %> <br>
+<% @user.playlists.each do |p|%>
+    <%= link_to "hello", user_playlist_path(p) %>
+<% end %>
+

@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
         @reviews = Review.all
         # if params[:playlist_id] && @playlist = Playlist.find_by_id(params[:playlist_id])
         #     #ok it is nested, so #&& not comparing for equality but setting it's value
-        #     #  and evauluate is @playlist nil or something ?
+        #     #  and evauluate if @playlist nil or something ?
         #     @reveiws = @playlist.reviews 
         #     # load  # all reviews apart of the playlists
         # else
@@ -20,19 +20,23 @@ class ReviewsController < ApplicationController
     end
 
     def new
-        if params[:playlist_id] && @playlist = Playlist.find_by_id(params[:playlist_id])
-            @review = @playlist.reviews.build 
+        if !params[:playlist_id] && @playlist = Playlist.find_by_id(params[:playlist_id])
+            @review = @playlist.reviews.build
+            redirect_to playlist_reviews_path(@review)
         else
-            @error = "Nonexistence" if params[:playlist_id]
-            @review = Review.new
+            @error = "Nonexistence" if !params[:playlist_id]
+                # redirect_to '/'
+                @review = Review.new
         end
     end
 
     def create 
         
-        @review = current_user.reviews.build(review_params)
+        @playlist = Playlist.find_by_id(params[:playlist_id])
+        @review = @playlist.reviews.build(review_params)
+        
         if @review.save
-            redirect_to reviews_path
+            redirect_to playlist_reviews_path(@review.playlist)
         else
             render :new
         end
@@ -55,6 +59,6 @@ class ReviewsController < ApplicationController
 
     private
         def review_params
-            params.require(:review).permit(:raiting, :comment, :user_id, :playlist_id)
+            params.require(:review).permit(:rating, :comment, :user_id, :playlist_id)
         end
 end

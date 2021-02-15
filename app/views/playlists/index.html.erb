@@ -1,10 +1,25 @@
 <br><br><strong>Listing all Playlists by <%=current_user.username%></strong> 
 <%=flash[:message]%>
-<% current_user.playlists.each do |playlist|%>
-    <ul>
-    <li>
-        <%= playlist.title%><br>
-        <%= playlist.description%> by <%=current_user.username%>
-    </li>
-    </ul>
+
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Playlist Creator</th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @playlists.each do |plist| %>
+  <tr>
+    <td><%= link_to "#{plist.title}", playlist_path(plist) %></td>
+    <td><%= plist.description %></td>
+    <td>by <%=current_user.username%></td>
+    <td><%= link_to "Show", playlist_path(plist) %></td>
+    <td><%= link_to "Edit", edit_playlist_path(plist) %></td>
+    <td><%= link_to "Remove", playlist_path(plist), method: :delete, data: { confirm: "Are you sure?" } %></td>
+  </tr>
 <% end %>
+</table>
+ 

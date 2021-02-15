@@ -3,7 +3,7 @@ class UsersController < ApplicationController
         redirect_if_not_logged_in
         @user = User.find(params[:id]) 
         # errior need error message
-        @user = User.find_by_id(params[:id])
+        # @user = User.find_by_id(params[:id])
         # return nil
         # session[:user_id]
     end

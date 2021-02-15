@@ -15,8 +15,8 @@ post '/signup', to: 'users#create'
 
 resources :reviews 
 
-resources :users do
-    resources :playlists
+resources :reviews do
+    resources :users
   end
 
 

@@ -1,7 +1,7 @@
 <h1>Make Your Playlist Here</h1>
 
 
-<%= form_for(@playlist) do |f|%>
+<%= form_for([@playlist]) do |f|%>
     <%= f.label :title %>
     <%= f.text_field :title %>
 
@@ -9,3 +9,4 @@
     <%= f.text_field :description %>
     <%= f.submit "Add Playlist!"%>
 <% end %>
+
