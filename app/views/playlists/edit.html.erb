@@ -1,12 +1,7 @@
 <h1>Editing Your Playlist Here</h1>
 
-<%= flash[:message]%>
-<%= form_for([@playlist]) do |f|%>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<%= render "form" %>
 
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= f.submit "Edit Playlist!"%>
-<% end %>
+
+
 

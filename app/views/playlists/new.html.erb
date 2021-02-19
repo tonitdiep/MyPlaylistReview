@@ -1,12 +1,7 @@
-<h1>Make Your Playlist Here</h1>
+<br><br><h1 style="text-align:center">Make Your Playlist Here</h1>
 
-Hello, <%= current_user.username %>!<br><br>
-<%= form_for([@playlist]) do |f|%>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
 
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= f.submit "Add Playlist!"%>
-<% end %>
-
+<br><br>
+<div style="text-align:center">
+<%= render "form" %>
+</div>

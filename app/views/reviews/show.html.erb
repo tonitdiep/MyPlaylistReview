@@ -1,2 +1,24 @@
-<h1>Your Reviews</h1>
-<%= @review.rating%> <%=@review.comment%>
+<h3>
+<% if @review.user == current_user %>
+    <%= link_to "Edit your Review", edit_review_path %>  |
+    <%= link_to "Remove Review", review_path, method: :delete, data: { confirm: "Are you sure?" } %>
+<%end%>
+</h3>
+
+<h1>Your Reviews Info:</h1>
+
+<div>
+Playlist Title: <%=@review.playlist.title%><br><br> 
+Playlist Description: <%=@review.playlist.description%><br><br> 
+Your Rating Score at: <%= @review.rating%><br><br> 
+Comments: <%=@review.comment%>
+</div>
+
+<br><br>
+<h3>Pick the Playlist's Title to view your reviews info:</h3>
+<%= render "reviews/review"%>
+
+<br><br>
+
+
+

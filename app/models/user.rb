@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :reviews #that they created
-    has_many :playlists #that they crated
+    has_many :playlists, dependent: :destroy
     has_many :reviewed_playlists, through: :reviews, source: :playlist #that they reviewed
     validates :username, uniqueness: true 
     validates :email, uniqueness: true

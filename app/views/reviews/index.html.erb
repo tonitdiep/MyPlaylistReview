@@ -1,7 +1,5 @@
+
 <br><br>
-<strong><h1>All Reviews</h1></strong>
-
-<% @reviews.each do |review|%>
-    <li><%=link_to review%></li>
-
-<% end %>
+<h1>All Reviews by: <%=current_user.username%></h1>
+<%= render "review"%>
+<br><br>

@@ -1,50 +1,35 @@
 class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    before_action :set_review, only: [:show, :new, :edit, :create, :update, :destroy]
+    before_action :authorized_to_edit, only: [:edit, :update, :destroy]
+    
     def index
-        #check if it is nested
         if params[:playlist_id] && @playlist = Playlist.find_by_id(params[:playlist_id])
             @reviews = @playlist.reviews
-            # @reviews = Review.all
         else 
             @reviews = current_user.reviews
         end
-        # if params[:playlist_id] && @playlist = Playlist.find_by_id(params[:playlist_id])
-        #     #ok it is nested, so #&& not comparing for equality but setting it's value
-        #     #  and evauluate if @playlist nil or something ?
-        #     @reveiws = @playlist.reviews 
-        #     # load  # all reviews apart of the playlists
-        # else
-        #     @error = "Nonexistence" if params[:playlist_id]
-        #     @reviews = Review.all
-        # end
-
     end
 
     def show
-        @review = Review.find_by_id(params[:id])
     end
 
     def new
-        if params[:playlist_id] && @playlist = Playlist.find_by_id(params[:playlist_id])
+        if params[:playlist_id] && @playlist = Playlist.find_by_id(params[:playlist_id]) 
             @review = @playlist.reviews.build
-            #parent primary ID.child(playlist_id) #has_many belongs_to
-            # @review = @playlist.build_reviews (belongs_to)
-           
+ 
         else
-            @error = "Nonexistence" if params[:playlist_id]
-                # redirect_to '/'
-                @review = Review.new
-                # @review.build_playlist
+            @review = Review.new
+           
         end
     end
 
     def create 
-
         if params[:playlist_id] 
             @playlist = Playlist.find_by_id(params[:playlist_id])
         
             @review = @playlist.reviews.build(review_params)
-            #info filled 
+        
             @review.user = current_user
         else
             @review = current_user.reviews.build(review_params)
@@ -52,18 +37,15 @@ class ReviewsController < ApplicationController
         if @review.save
             redirect_to review_path(@review)
         else
-            render :new #saves info when render new #redirect loose all variables
+            flash[:message]= "Invalid Submission."
+            render :new 
         end
     end
 
-
-
     def edit
-        @review = Review.find_by(id: params[:id])
     end
 
     def update
-        @review = Review.find_by(params[:id])
         if @review.update(review_params)
             redirect_to review_path(@review)
         else 
@@ -71,8 +53,26 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def destroy 
+            @review.destroy
+            flash[:message] = "Successful Delete!"
+            redirect_to '/'
+    end
+
     private
         def review_params
             params.require(:review).permit(:rating, :comment, :playlist_id)
+        end
+
+        def set_review
+            @review = Review.find_by_id(params[:id])
+        end
+
+        def authorized_to_edit
+        
+            if current_user != @review.user
+                flash[:message] = "Unauthorized Action!"
+                redirect_to '/'
+            end
         end
 end

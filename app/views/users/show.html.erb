@@ -1,10 +1,22 @@
-<h1>Welcome User: <%= current_user.username%></h1> 
+<%= render partial: 'layouts/errors', locals: {object: @user }%>
+
+<h1>Your created playlist and reviews at glance, <%= current_user.username%></h1> 
 <h3><%= current_user.email%> </h3><br>
 
 My Playlists:
 
 <% current_user.playlists.each do |p|%>
-    <%= link_to "hello", playlist_path(p) %>
+<li>
+    <%= link_to p.title, playlist_path(p) %>
+</li>  
+
 <% end %>
 
-<%= link_to "Your Reviewed Playlists", reviews_path%>
+<br>
+See Your Reviewed Playlists' Perspectives: 
+<% current_user.reviews.each do |rv|%>
+<li>
+<%= link_to rv.playlist.title, playlist_reviews_path(rv)%>
+</li>
+<% end %>
+

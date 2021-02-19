@@ -1,0 +1,21 @@
+
+<%= render partial: "layouts/errors", locals: { object: @playlist } %>
+
+
+<%= flash[:message]%>
+
+
+<%= form_with(model: @playlist) do |f|%>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <%= f.submit "Submit!"%>
+<% end %>
+
+
+ <% if @user == current_user %>
+      <br><%= link_to "Edit your Playlist", edit_playlist_path %><br><br>
+<%end%>
+
+

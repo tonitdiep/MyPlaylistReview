@@ -1,17 +1,23 @@
 
 <br><br>
-<%= link_to "See all Reviews", playlist_reviews_path(@playlist)%> |
-<%= link_to "Put in a new Reviews", new_playlist_review_path(@playlist)%><br>
-<%= link_to "To All Reviews", playlist_reviews_path(@playlist)%>
-<h1>Playlist Title: <%= @playlist.title %></h1>
-<h2>Current User: <%= current_user.username %><br><br>
 
-<div>Playlist Description: <%= @playlist.description %></div>
-<%= link_to "Edit your Playlist", edit_playlist_path %><br><br>
-<%= link_to 'Back', playlists_path %>
-<p>Reviewed Playlist Comment(s) <%=@review%> </p>
-<h4>REVIEWED PLAYLISTS:</h4>
-<% @playlist.reviews.each do |review| %>
-      <%=link_to "reviewed playlists", playlist_review_path(review)%>
-    
-<% end %>
+
+
+<h3 style="text-align:center">Playlist Functions:<br></h3>
+<h4  style="text-align:center">
+<%= link_to "Add Your Review To This Playlist", new_playlist_review_path(@playlist)%> |
+<%= link_to "Read Your Completed Reviews!", playlist_reviews_path(@playlist)%> |
+<%= link_to "Edit Your Playlist", edit_playlist_path %> |
+<%= link_to "Remove Playlist", playlist_path, method: :delete, data: { confirm: "Are you sure?" } %>  |
+<%= link_to 'Go Back', playlists_path %>
+
+
+
+<h/4>
+<div>      
+<h1 style="text-align:center">Playlist Title: <%= @playlist.title %> | Playlist by: <%=@playlist.user.username%></h1>
+<p style="text-align:center">Playlist Description: <%= @playlist.description %></p>
+</div>
+
+
+<br><br>

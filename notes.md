@@ -17,7 +17,19 @@ Generate
 
 [ ] Test out objects and associations in "rails c -s"
 
+<% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
+    <ul>
+      <% @review.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <%end %>
+
+  
 User  => User(id: integer, username: string, password_digest: string, email: string, created_at: datetime, updated_at: datetime) 
 
 Playlist => Playlist(id: integer, title: string, description: text, user_id: integer, created_at: datetime, updated_at: datetime) 

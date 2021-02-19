@@ -1,33 +1,4 @@
 <h1>New Playlist Review</h1>
-<h2>add a collection select to review a playlist from</h2>
-<%= form_for ([@playlist, @review]) do |f| %>
+<h2>Select A Playlist to Review</h2>
 
-<% unless @playlist %>
-
-    Select Playlist Title: <%= f.collection_select :playlist_id, Playlist.all, :id, :title %><br><br>
-<% else %>
-
-  <%= f.hidden_field :playlist_id %>
-  
-    <% end %>
-
-    <%= f.label :rating %>
-    <%= f.number_field :rating%><br><br>
-
-    <%= f.label :comment %>
-    <%= f.text_area :comment %><br><br>
-
-    <%= f.submit "Add Review"%>
-<% end %>
-
-<% if @review.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-    <ul>
-      <% @review.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <%end %>
+<%= render "form" %>
