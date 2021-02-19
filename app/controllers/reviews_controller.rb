@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
         if params[:playlist_id] && @playlist = Playlist.find_by_id(params[:playlist_id])
             @reviews = @playlist.reviews
         else 
-            @reviews = current_user.reviews
+            @reviews = current_user.reviews.first_created
         end
     end
 

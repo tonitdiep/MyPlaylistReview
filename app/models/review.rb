@@ -4,7 +4,8 @@ class Review < ApplicationRecord
   validates :rating, numericality: {only_integer: true, less_than_or_equal_to: 10 }
   validates :comment, presence: true, length: { minimum: 10 }
 
-
+ scope :first_created, -> {order(created_at: :DESC)}
+  
 
 end
 
