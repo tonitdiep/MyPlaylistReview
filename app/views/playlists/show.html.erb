@@ -6,14 +6,11 @@
 <h3 style="text-align:center">Playlist Functions:<br></h3>
 <h4  style="text-align:center">
 <%= link_to "Add Your Review To This Playlist", new_playlist_review_path(@playlist)%> |
-<%= link_to "Read Your Completed Reviews!", playlist_reviews_path(@playlist)%> |
 <%= link_to "Edit Your Playlist", edit_playlist_path %> |
 <%= link_to "Remove Playlist", playlist_path, method: :delete, data: { confirm: "Are you sure?" } %>  |
 <%= link_to 'Go Back', playlists_path %>
-
-
-
 <h/4>
+
 <div>      
 <h1 style="text-align:center">Playlist Title: <%= @playlist.title %> | Playlist by: <%=@playlist.user.username%></h1>
 <p style="text-align:center">Playlist Description: <%= @playlist.description %></p>
@@ -21,3 +18,5 @@
 
 
 <br><br>
+
+

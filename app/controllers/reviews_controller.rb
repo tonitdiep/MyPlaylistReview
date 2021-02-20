@@ -5,9 +5,9 @@ class ReviewsController < ApplicationController
     
     def index
         if params[:playlist_id] && @playlist = Playlist.find_by_id(params[:playlist_id])
-            @reviews = @playlist.reviews
+            @reviews = @playlist.reviews.when_created_at
         else 
-            @reviews = current_user.reviews.first_created
+            @reviews = current_user.reviews.when_created_at
         end
     end
 
@@ -54,6 +54,7 @@ class ReviewsController < ApplicationController
     end
 
     def destroy 
+        
             @review.destroy
             flash[:message] = "Successful Delete!"
             redirect_to '/'

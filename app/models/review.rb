@@ -2,10 +2,10 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :playlist
   validates :rating, numericality: {only_integer: true, less_than_or_equal_to: 10 }
-  validates :comment, presence: true, length: { minimum: 10 }
+  validates :comment, presence: true, length: { minimum: 12 }
 
- scope :first_created, -> {order(created_at: :DESC)}
-  
+
+
 
 end
 

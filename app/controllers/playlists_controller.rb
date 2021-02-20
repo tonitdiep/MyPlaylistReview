@@ -5,9 +5,9 @@ class PlaylistsController < ApplicationController
     def index
    
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
-            @playlist = @user.playlists
+            @playlist = @user.playlists.alpha
         else
-            @playlists = Playlist.aplha
+            @playlists = Playlist.alpha
             
         end 
     end
@@ -42,17 +42,15 @@ class PlaylistsController < ApplicationController
     end
 
     def destroy
-     
         @playlist = Playlist.find_by_id(params[:id]) 
 
         if current_user !=  @playlist.user 
             flash[:message] = "Unauthorized action."
-            redirect_to playlists_path(@playlist)
+            redirect_to playlists_path
         else
             @playlist.destroy
             redirect_to '/'
-        end
-        
+        end 
     end
     
     private
@@ -60,8 +58,7 @@ class PlaylistsController < ApplicationController
             params.require(:playlist).permit(:title, :description)
         end
 
-        def authorized_to_edit
-        
+        def authorized_to_edit 
             if current_user != @playlist.user
                 flash[:message] = "Unauthorized action."
                 redirect_to '/'

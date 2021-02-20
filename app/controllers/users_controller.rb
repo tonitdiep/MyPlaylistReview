@@ -5,11 +5,6 @@ class UsersController < ApplicationController
 
         @user = User.find_by_id(params[:id])
         redirect_to '/' if !@user 
-        #protect paths
-        # errior need error message
-        # @user = User.find_by_id(params[:id])
-        # return nil
-        # session[:user_id]
     end
 
     def new
