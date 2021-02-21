@@ -1,21 +1,22 @@
 USER
-[ ] has many reviews #that they created
-[ ] has many playlists #that they created 
-[ ] has many :reviewed_playlists, through: :reviews, source: :playlist #that they reviewed
+[X] has many reviews #that they created
+[X] has many playlists #that they created 
+[X] has many :reviewed_playlists, through: :reviews, source: :playlist #that they reviewed
 
 PLAYLIST
-[ ] belongs to user #one who create 
-[ ] has many reviews
-[ ] has many users through reviews #users that have reviewed the playlist
+[X] belongs to user #one who create 
+[X] has many reviews
+[X] has many users through reviews #users that have reviewed the playlist
 
 REVIEW
-[ ] belongs to playlist
-[ ] belongs to user
+[X] belongs to playlist
+[X] belongs to user
 
 Generate 
-[ ] 3 Models and it's migrations
+[X] 3 Models and it's migrations
 
-[ ] Test out objects and associations in "rails c -s"
+[X] Test out objects and associations in "rails c -s"
+
 
 <% if @review.errors.any? %>
   <div id="error_explanation">
@@ -28,6 +29,20 @@ Generate
     </ul>
   </div>
   <%end %>
+[X] Models and table migrations
+[X] Test objects in 'rails c -s"
+[X] Validations and scopes
+[X] Sign Up 
+[X] Log In
+[X] Log Out
+[X] OmniAuth Sign In
+[X] OmniAuth gems, dotenv-rails gems, .env file., .env in gitignore
+[X] Sign Up, Log In, Log Out Forms
+[X] Users, Reviews, Sessions, Playlists Controllers
+[X] Refactor View pages and Controllers
+[X] Add partials, when necessary
+[X] Use helpers and helpers folders, when necessary
+[X] Always check and update routes.rb and schema, when feeling lost or checking things
 
   
 User  => User(id: integer, username: string, password_digest: string, email: string, created_at: datetime, updated_at: datetime) 

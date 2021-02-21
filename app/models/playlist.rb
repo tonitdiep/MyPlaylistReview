@@ -5,7 +5,7 @@ class Playlist < ApplicationRecord
     validates :title, :description, presence: {scope: [:title, :description], message: "already exists, try a different one." }
   
     scope :alpha, -> {order(title: :ASC)}
-    # scope :first_created, -> {order("updated_at: :desc")}
+  
 
 
 end

@@ -38,8 +38,10 @@
     <% if flash[:message] %>
       <div class="field_with_errors"><%= flash[:message] %></div>
     <% end %>
-
-
+    <br><br>
+    <p style="text-align:center">
+    <%= image_tag("logos/Hermes.jpeg", width: '150px')%>
+    </p>
     <%= yield %>
   </body>
 </html>
