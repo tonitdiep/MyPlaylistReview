@@ -1,6 +1,6 @@
 # Rails Project README
 Welcome to MyPlaylistReview for Rails Module 3 Project. 
-In MyPlaylistReview app, we are creating, reviewing and organizing how these playlists and reviews entries are(journal style) are accessed and displayed as a Content Management System (CMS). Now we are intricately building complex forms and RESTful routes to manage our database, utilizing nested routes, scopes and validations to test and query our database.  By integrating the database usage from ActiveRecord models associatios (belongs_to's and has_many through's), requires a complexity in mapping out the MVC structure and RESTful routes that are DRY and efficiently managed and experienced for both the developer and clients.
+In MyPlaylistReview app, we are creating, reviewing and organizing how these playlists and reviews entries are(journal style) are accessed and displayed as a Content Management System (CMS). Now we are intricately building complex forms and RESTful routes to manage our database, utilizing nested routes, scopes and validations to test and query our database.  By integrating the database usage from ActiveRecord models associations (belongs_to's and has_many through's), requires a complexity with mapping out the MVC structure and RESTful routes that are DRY and efficiently managed and experienced by both the developer and clients.
  
 ## Installation
 Before you run this, be sure to run 'bundle install'.
