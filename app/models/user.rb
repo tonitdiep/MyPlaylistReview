@@ -5,7 +5,8 @@ class User < ApplicationRecord
     has_many :reviewed_playlists, through: :reviews, source: :playlist #that they reviewed
     validates :username, uniqueness: {scope: [:username], message: "already exists. Your Username should be unique." }
     validates :email, uniqueness: true
-    
+    validates :username, :email, presence: true
+
     
     def self.create_from_omniauth(auth)
         User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
