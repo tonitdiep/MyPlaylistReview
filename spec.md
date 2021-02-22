@@ -16,7 +16,7 @@ Generate
 [X] 3 Models and it's migrations
 
 [X] Test out objects and associations in "rails c -s"
-'''
+```
 <div>
 <% if @review.errors.any? %>
   <div id="error_explanation">
@@ -30,7 +30,7 @@ Generate
   </div>
   <%end %>
   </div>
-  '''
+  ```
 
 [X] Models and table migrations
 [X] Test objects in 'rails c -s"
