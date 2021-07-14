@@ -1,22 +1,24 @@
-USER
-[X] has many reviews #that they created
-[X] has many playlists #that they created 
-[X] has many :reviewed_playlists, through: :reviews, source: :playlist #that they reviewed
+# USER
+- [X] has many reviews #that they created
+- [X] has many playlists #that they created 
+- [X] has many :reviewed_playlists, through: :reviews, source: :playlist #that they reviewed
 
-PLAYLIST
-[X] belongs to user #one who create 
-[X] has many reviews
-[X] has many users through reviews #users that have reviewed the playlist
 
-REVIEW
-[X] belongs to playlist
-[X] belongs to user
+# PLAYLIST
+- [X] belongs to user #one who create 
+- [X] has many reviews
+- [X] has many users through reviews #users that have reviewed the playlist
 
-Generate 
-[X] 3 Models and it's migrations
+# REVIEW
+- [X] belongs to playlist
+- [X] belongs to user
 
-[X] Test out objects and associations in "rails c -s"
+# Generate 
+- [X] 3 Models and it's migrations
+
+- [X] Test out objects and associations in "rails c -s"
 ```
+use this to display errors 
 <div>
 <% if @review.errors.any? %>
   <div id="error_explanation">
@@ -32,20 +34,20 @@ Generate
   </div>
   ```
 
-[X] Models and table migrations
-[X] Test objects in 'rails c -s"
-[X] Validations and scopes
-[X] Sign Up 
-[X] Log In
-[X] Log Out
-[X] OmniAuth Sign In
-[X] OmniAuth gems, dotenv-rails gems, .env file., .env in gitignore
-[X] Sign Up, Log In, Log Out Forms
-[X] Users, Reviews, Sessions, Playlists Controllers
-[X] Refactor View pages and Controllers
-[X] Add partials, when necessary
-[X] Use helpers and helpers folders, when necessary
-[X] Always check and update routes.rb and schema, when feeling lost or checking things
+- [X] Models and table migrations
+- [X] Test objects in 'rails c -s"
+- [X] Validations and scopes
+- [X] Sign Up 
+- [X] Log In
+- [X] Log Out
+- [X] OmniAuth Sign In
+- [X] OmniAuth gems, dotenv-rails gems, .env file., .env in gitignore
+- [X] Sign Up, Log In, Log Out Forms
+- [X] Users, Reviews, Sessions, Playlists Controllers
+- [X] Refactor View pages and Controllers
+- [X] Add partials, when necessary
+- [X] Use helpers and helpers folders, when necessary
+- [X] Always check and update routes.rb and schema, when feeling lost or checking things
 
 ```  
 User  => User(id: integer, username: string, password_digest: string, email: string, created_at: datetime, updated_at: datetime) 
@@ -85,24 +87,24 @@ User.find(1).playlists.find(1).reviews
  # Specifications for the Rails Assessment
 
 Specs:
-- [x] Using Ruby on Rails for the project
-- [ ] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes) 
-- [ ] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
-- [ ] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
-- [ ] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
-- [ ] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
-- [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-- [ ] Include signup (how e.g. Devise)
-- [ ] Include login (how e.g. Devise)
-- [ ] Include logout (how e.g. Devise)
-- [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [X] Using Ruby on Rails for the project
+- [X] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes) 
+- [X] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
+- [X] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
+- [X] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
+- [X] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
+- [X] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+- [X] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [X] Include signup (how e.g. Devise)
+- [X] Include login (how e.g. Devise)
+- [X] Include logout (how e.g. Devise)
+- [X] Include third party signup/login (how e.g. Devise/OmniAuth)
+- [X] Include nested resource show or index (URL e.g. users/2/recipes)
+- [X] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+- [X] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [X] The application is pretty DRY
+- [X] Limited logic in controllers
+- [X] Views use helper methods if appropriate
+- [X] Views use partials if appropriate

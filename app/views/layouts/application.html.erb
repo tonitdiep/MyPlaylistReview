@@ -31,6 +31,7 @@
           <%= link_to "Log In", '/login'%><br>
           <%= link_to "Google Log In Here", '/auth/google_oauth2', method: :post%><br>
         <% end %>
+
           </div>
       </div>
 
@@ -40,8 +41,10 @@
     <% end %>
     <br><br>
     <p style="text-align:center">
-    <%= image_tag("logos/Hermes.jpeg", width: '150px')%>
+    <%= image_tag("logos/Hermes.jpeg", width: '100px')%>
     </p>
+
+
     <%= yield %>
   </body>
 </html>

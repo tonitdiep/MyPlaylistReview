@@ -3,16 +3,18 @@ class PlaylistsController < ApplicationController
     before_action :set_playlist, only: [:show, :edit, :update]
     before_action :authorized_to_edit, only: [:edit, :update]
     def index
-   
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @playlist = @user.playlists.alpha
+        elsif params[:search]
+            @playlists = Playlist.search(params[:search])
         else
-            @playlists = Playlist.alpha
-            
+            @playlists = Playlist.alpha 
         end 
+
     end
 
     def show
+        
     end
 
     def new

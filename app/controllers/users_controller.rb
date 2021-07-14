@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
     
+    def index
+    
+        if params[:playlist_id] && @playlist = Playlist.find_by_id(params[:playlist_id])
+            @users = @playlist.reviews  
+        end
+    end
+
     def show
         redirect_if_not_logged_in
 
@@ -22,13 +29,11 @@ class UsersController < ApplicationController
         end
     end
 
-   
 
 
-
-private
-    def user_params
-        params.require(:user).permit(:username, :password, :email)
-    end
+    private
+        def user_params
+            params.require(:user).permit(:username, :password, :email)
+        end
 
 end

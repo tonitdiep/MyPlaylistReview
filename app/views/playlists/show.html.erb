@@ -18,4 +18,14 @@
 
 
 <br><br>
+<h3>List of User(s) That Reviewed This Playlist:</h3>
+<% @playlist.users.each do |plistusers|%>
+    <ul>
+    <%= link_to plistusers.username, playlist_users_path(@playlist)%>
+    </ul>
+<% end %>
+
+
+
+
 

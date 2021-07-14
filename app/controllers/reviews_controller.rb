@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     
     def index
         if params[:playlist_id] && @playlist = Playlist.find_by_id(params[:playlist_id])
-            @reviews = @playlist.reviews.when_created_at
+            @reviews = @playlist.reviews
         else 
             @reviews = current_user.reviews
         end

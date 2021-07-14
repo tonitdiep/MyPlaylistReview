@@ -15,6 +15,14 @@ Rails.application.routes.draw do
 
       resources :reviews 
 
+      
+      resources :playlists do
+        resources :users 
+      end
+
+
+
+
       resources :users, only: [:show, :new, :create] do
           resources :reviews
       end
