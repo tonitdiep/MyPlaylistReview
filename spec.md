@@ -13,7 +13,7 @@
 - [X] belongs to playlist
 - [X] belongs to user
 
-# Generate 
+# git Generate 
 - [X] 3 Models and it's migrations
 
 - [X] Test out objects and associations in "rails c -s"
@@ -86,7 +86,7 @@ User.find(1).playlists.find(1).reviews
 
  # Specifications for the Rails Assessment
 
-Specs:
+**Specs:**
 - [X] Using Ruby on Rails for the project
 - [X] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes) 
 - [X] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
@@ -103,7 +103,7 @@ Specs:
 - [X] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 - [X] Include form display of validation errors (form URL e.g. /recipes/new)
 
-Confirm:
+**Confirm:**
 - [X] The application is pretty DRY
 - [X] Limited logic in controllers
 - [X] Views use helper methods if appropriate
